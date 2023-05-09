@@ -107,12 +107,17 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore(app);
 
-const showUnitsBtn = document.getElementById('show-units-btn');
-const tomblist = document.getElementById('tomblist');
+document.addEventListener('DOMContentLoaded', () => {
+  const showUnitsBtn = document.getElementById('show-units-btn');
+  const tomblist = document.getElementById('tomblist');
 
-showUnitsBtn.addEventListener('click', () => {
-  tomblist.classList.toggle('d-none');
+  showUnitsBtn.addEventListener('click', () => {
+    tomblist.classList.toggle('d-none');
+  });
+
+  init();
 });
+
 
 
 async function init() {
