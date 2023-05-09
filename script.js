@@ -56,14 +56,13 @@ function loadUnits(map) {
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         const data = doc.data();
-        const unitId = doc.id;
 
         const button = document.createElement('button');
         button.setAttribute('type', 'button');
         button.classList.add('list-group-item', 'list-group-item-action');
-        button.textContent = unitId;
+        button.textContent = data.unitId;
         button.onclick = function () {
-          getUnitCoordinates(unitId, map);
+          getUnitCoordinates(doc.id, map);
         };
 
         unitList.appendChild(button);
@@ -71,8 +70,9 @@ function loadUnits(map) {
     });
 }
 
+
 function setupMap(center) {
-  const map = new mapboxgl.Map({
+  map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/kuskusxyrenn/clee7imbg000p01nx6ah0pt8w',
     center: [121.0524150628587, 14.682569991056297],
