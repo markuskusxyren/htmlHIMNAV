@@ -35,12 +35,20 @@ function getUnitCoordinates(unitId) {
 
 
 function plotUnitOnMap(coordinates) {
-  const marker = new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
-  map.flyTo({
-    center: coordinates,
-    essential: true,
-  });
+  const [longitude, latitude] = coordinates;
+
+  if (!isNaN(longitude) && !isNaN(latitude)) {
+    marker.setColor('red');
+    const marker = new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
+    map.flyTo({
+      center: coordinates,
+      essential: true,
+    });
+  } else {
+    console.log("Invalid coordinates:", coordinates);
+  }
 }
+
 
 function loadUnits() {
   const unitList = document.getElementById('unit-list');
