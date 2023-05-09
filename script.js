@@ -71,7 +71,7 @@ function loadUnits(map) {
     });
 }
 
-function setupMap() {
+function setupMap(center = [121.0524150628587, 14.682569991056297]) {
   map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/kuskusxyrenn/clee7imbg000p01nx6ah0pt8w',
@@ -140,8 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   async function init() {
-    const center = [121.0524150628587, 14.682569991056297];
-    const map = setupMap(center);
+    const map = setupMap();
     loadUnits(map);
   }
 
