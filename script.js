@@ -48,7 +48,6 @@ function plotUnitOnMap(coordinates) {
   }
 }
 
-
 function loadUnits(map) {
   const unitList = document.getElementById('unit-list');
 
@@ -71,8 +70,6 @@ function loadUnits(map) {
       });
     });
 }
-
-let map;
 
 function setupMap(center) {
   const map = new mapboxgl.Map({
@@ -141,12 +138,11 @@ document.addEventListener('DOMContentLoaded', () => {
   showUnitsBtn.addEventListener('click', () => {
     unitListContainer.classList.toggle('d-none');
   });
+
+  async function init() {
+    const map = setupMap();
+    loadUnits(map);
+  }
+
+  init();
 });
-
-
-async function init() {
-  const map = setupMap();
-  loadUnits(map);
-}
-
-init();
