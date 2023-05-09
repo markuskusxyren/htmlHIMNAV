@@ -21,7 +21,7 @@ function getUnitCoordinates(unitId) {
     .then((doc) => {
       if (doc.exists) {
         const data = doc.data();
-        const coordinates = [data.coords.longitude, data.coords.latitude];
+        const coordinates = [data['coords'][1], data['coords'][0]];
         plotUnitOnMap(coordinates);
       } else {
         console.log('No such document!');
@@ -31,6 +31,7 @@ function getUnitCoordinates(unitId) {
       console.log('Error getting document:', error);
     });
 }
+
 
 
 function plotUnitOnMap(coordinates) {
