@@ -721,8 +721,8 @@ div.tomblist {
 
 #unit-list-container {
     position: fixed;
-    bottom: 4.75rem;
-    right: 3rem;
+    bottom: 4.8rem;
+    right: 1rem;
     max-height: 300px;
     overflow-y: auto;
 }
@@ -731,6 +731,7 @@ div.tomblist {
     position: fixed;
     bottom: 0;
     right: 0;
-    margin: 3rem;
-    margin-bottom: 4.5rem;
+    margin: 1rem;
+    margin-bottom: 1rem;
+    margin-bottom: 1.8rem;
 }
