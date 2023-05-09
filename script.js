@@ -32,7 +32,7 @@ function getUnitCoordinates(unitId, map) {
     });
 }
 
-function plotUnitOnMap(coordinates) {
+function plotUnitOnMap(coordinates, map) {
   const [longitude, latitude] = coordinates;
 
   if (!isNaN(longitude) && !isNaN(latitude)) {
@@ -71,13 +71,11 @@ function loadUnits(map) {
     });
 }
 
-
-
-function setupMap(center) {
+function setupMap(center = [121.0524150628587, 14.682569991056297]) {
   map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/kuskusxyrenn/clee7imbg000p01nx6ah0pt8w',
-    center: [121.0524150628587, 14.682569991056297],
+    center: center,
     zoom: 15,
   });
 
