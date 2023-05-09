@@ -61,7 +61,7 @@ function loadUnits(map) {
         const button = document.createElement('button');
         button.setAttribute('type', 'button');
         button.classList.add('list-group-item', 'list-group-item-action');
-        button.textContent = unitId;
+        button.textContent = data['unitID'];
         button.onclick = function () {
           getUnitCoordinates(doc.id, map);
         };
