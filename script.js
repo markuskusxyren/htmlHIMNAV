@@ -1,6 +1,3 @@
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
-
 mapboxgl.accessToken =
   'pk.eyJ1Ijoia3Vza3VzeHlyZW5uIiwiYSI6ImNsZWN4ampubzAxaDczcG16MXcwcWhhcDEifQ.9K3JBDAzq3Ru8riWg49zgw';
 
@@ -107,8 +104,8 @@ const firebaseConfig = {
   measurementId: 'G-WKZE7R1VHT',
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore(app);
 
 async function init() {
   loadUnits();
