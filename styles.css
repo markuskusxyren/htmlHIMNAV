@@ -730,3 +730,13 @@ div.tomblist {
     height: 100%;
     width: 100%;
 }
+
+#unit-list-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.btn-holder {
+    display: flex;
+    flex-direction: row-reverse;
+}
