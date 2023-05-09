@@ -105,7 +105,23 @@ const firebaseConfig = {
 };
 
 const app = firebase.initializeApp(firebaseConfig);
+console.log("Firebase app initialized:", app);
 const db = firebase.firestore(app);
+
+function readDataFromFirestore() {
+  db.collection("tombs")
+    .limit(1)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log("Example Firestore data:", doc.data());
+      });
+    })
+    .catch((error) => {
+      console.error("Error reading data from Firestore:", error);
+    });
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const showUnitsBtn = document.getElementById('show-units-btn');
