@@ -34,18 +34,19 @@ function getUnitCoordinates(unitId, map) {
 
 function plotUnitOnMap(coordinates) {
   const [longitude, latitude] = coordinates;
+
   if (!isNaN(longitude) && !isNaN(latitude)) {
-    const marker = new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
-    marker.setColor('red');
-    map.flyTo({
-      center: coordinates,
-      essential: true,
-    });
+    if (map) {
+      const marker = new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
+      map.flyTo({
+        center: coordinates,
+        essential: true,
+      });
+    }
   } else {
     console.log("Invalid coordinates:", coordinates);
   }
 }
-
 
 
 function loadUnits(map) {
@@ -71,6 +72,7 @@ function loadUnits(map) {
     });
 }
 
+let map;
 
 function setupMap(center) {
   const map = new mapboxgl.Map({
