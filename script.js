@@ -32,14 +32,12 @@ function getUnitCoordinates(unitId) {
     });
 }
 
-
-
 function plotUnitOnMap(coordinates) {
   const [longitude, latitude] = coordinates;
 
   if (!isNaN(longitude) && !isNaN(latitude)) {
-    marker.setColor('red');
     const marker = new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
+    marker.setColor('red');
     map.flyTo({
       center: coordinates,
       essential: true,
@@ -48,7 +46,6 @@ function plotUnitOnMap(coordinates) {
     console.log("Invalid coordinates:", coordinates);
   }
 }
-
 
 function loadUnits() {
   const unitList = document.getElementById('unit-list');
