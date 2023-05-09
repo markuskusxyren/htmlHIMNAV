@@ -41,7 +41,7 @@ function plotUnitOnMap(coordinates) {
 }
 
 function loadUnits() {
-  const tomblist = document.getElementById('tomblist');
+  const unitList = document.getElementById('unit-list');
 
   db.collection('tombs')
     .get()
@@ -58,7 +58,7 @@ function loadUnits() {
           getUnitCoordinates(unitId);
         };
 
-        tomblist.appendChild(button);
+        unitList.appendChild(button);
       });
     });
 }
@@ -126,10 +126,10 @@ function readDataFromFirestore() {
 
 document.addEventListener('DOMContentLoaded', () => {
   const showUnitsBtn = document.getElementById('show-units-btn');
-  const tomblist = document.getElementById('tomblist');
+  const unitListContainer = document.getElementById('unit-list-container');
 
   showUnitsBtn.addEventListener('click', () => {
-    tomblist.classList.toggle('d-none');
+    unitListContainer.classList.toggle('d-none');
   });
 
   init();
