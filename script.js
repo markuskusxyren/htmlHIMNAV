@@ -6,7 +6,7 @@ navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
 });
 
 function successLocation(position) {
-  setupMap([121.0524150628587, 14.682569991056297]);
+  setupMap([position.coords.longitude, position.coords.latitude]);
 }
 
 function errorLocation() {
@@ -75,7 +75,6 @@ function setupMap(center = [121.0524150628587, 14.682569991056297]) {
   map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/kuskusxyrenn/clee7imbg000p01nx6ah0pt8w',
-    center: center,
     zoom: 15,
   });
 
