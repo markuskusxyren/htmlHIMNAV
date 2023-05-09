@@ -13,7 +13,7 @@ function errorLocation() {
   setupMap([121.0524150628587, 14.682569991056297]);
 }
 
-function getUnitCoordinates(unitId) {
+function getUnitCoordinates(unitId, map) {
   const unitRef = db.collection('tombs').doc(unitId);
 
   unitRef
@@ -22,7 +22,7 @@ function getUnitCoordinates(unitId) {
       if (doc.exists) {
         const data = doc.data();
         const coordinates = [data['coords'][1], data['coords'][0]];
-        plotUnitOnMap(coordinates);
+        plotUnitOnMap(coordinates, map);
       } else {
         console.log('No such document!');
       }
@@ -32,12 +32,11 @@ function getUnitCoordinates(unitId) {
     });
 }
 
-function plotUnitOnMap(coordinates) {
+function plotUnitOnMap(coordinates, map) {
   const [longitude, latitude] = coordinates;
 
   if (!isNaN(longitude) && !isNaN(latitude)) {
     const marker = new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
-    marker.setColor('red');
     map.flyTo({
       center: coordinates,
       essential: true,
@@ -46,6 +45,7 @@ function plotUnitOnMap(coordinates) {
     console.log("Invalid coordinates:", coordinates);
   }
 }
+
 
 function loadUnits() {
   const unitList = document.getElementById('unit-list');
@@ -62,7 +62,7 @@ function loadUnits() {
         button.classList.add('list-group-item', 'list-group-item-action');
         button.textContent = unitId;
         button.onclick = function () {
-          getUnitCoordinates(unitId);
+          getUnitCoordinates(unitId, map);
         };
 
         unitList.appendChild(button);
