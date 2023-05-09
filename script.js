@@ -37,6 +37,7 @@ function plotUnitOnMap(coordinates, map) {
 
   if (!isNaN(longitude) && !isNaN(latitude)) {
     const marker = new mapboxgl.Marker().setLngLat(coordinates).addTo(map);
+    marker.setColor('red');
     map.flyTo({
       center: coordinates,
       essential: true,
@@ -47,7 +48,7 @@ function plotUnitOnMap(coordinates, map) {
 }
 
 
-function loadUnits() {
+function loadUnits(map) {
   const unitList = document.getElementById('unit-list');
 
   db.collection('tombs')
@@ -141,9 +142,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
 async function init() {
-  loadUnits();
+  const map = setupMap();
+  loadUnits(map);
 }
 
 init();
