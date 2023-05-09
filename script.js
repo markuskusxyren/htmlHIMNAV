@@ -131,6 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
   showUnitsBtn.addEventListener('click', () => {
     unitListContainer.classList.toggle('d-none');
   });
-
-  init();
 });
+
+
+
+async function init() {
+  loadUnits();
+}
+
+init();
