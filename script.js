@@ -14,14 +14,14 @@ function errorLocation() {
 }
 
 function getUnitCoordinates(unitId) {
-  const unitRef = db.collection('units').doc(unitId);
+  const unitRef = db.collection('tombs').doc(unitId);
 
   unitRef
     .get()
     .then((doc) => {
       if (doc.exists) {
         const data = doc.data();
-        const coordinates = [data.longitude, data.latitude];
+        const coordinates = data.coords;
         plotUnitOnMap(coordinates);
       } else {
         console.log('No such document!');
@@ -43,7 +43,7 @@ function plotUnitOnMap(coordinates) {
 function loadUnits() {
   const tomblist = document.getElementById('tomblist');
 
-  db.collection('units')
+  db.collection('tombs')
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -62,6 +62,7 @@ function loadUnits() {
       });
     });
 }
+
 
 function setupMap(center) {
   const map = new mapboxgl.Map({
