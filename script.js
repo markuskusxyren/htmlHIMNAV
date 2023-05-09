@@ -56,11 +56,12 @@ function loadUnits(map) {
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         const data = doc.data();
+        const unitId = data.unitId;
 
         const button = document.createElement('button');
         button.setAttribute('type', 'button');
         button.classList.add('list-group-item', 'list-group-item-action');
-        button.textContent = data.unitId;
+        button.textContent = unitId;
         button.onclick = function () {
           getUnitCoordinates(doc.id, map);
         };
@@ -69,6 +70,7 @@ function loadUnits(map) {
       });
     });
 }
+
 
 
 function setupMap(center) {
