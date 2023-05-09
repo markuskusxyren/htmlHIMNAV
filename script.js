@@ -107,6 +107,14 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore(app);
 
+const showUnitsBtn = document.getElementById('show-units-btn');
+const tomblist = document.getElementById('tomblist');
+
+showUnitsBtn.addEventListener('click', () => {
+  tomblist.classList.toggle('d-none');
+});
+
+
 async function init() {
   loadUnits();
 }
