@@ -130,7 +130,6 @@ function readDataFromFirestore() {
     });
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
   const showUnitsBtn = document.getElementById('show-units-btn');
   const unitListContainer = document.getElementById('unit-list-container');
@@ -140,7 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   async function init() {
-    const map = setupMap();
+    const center = [121.0524150628587, 14.682569991056297];
+    const map = setupMap(center);
     loadUnits(map);
   }
 
