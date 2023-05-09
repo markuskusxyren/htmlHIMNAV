@@ -71,7 +71,7 @@ function loadUnits(map) {
     });
 }
 
-function setupMap(center = [121.0524150628587, 14.682569991056297]) {
+function setupMap() {
   map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/kuskusxyrenn/clee7imbg000p01nx6ah0pt8w',
