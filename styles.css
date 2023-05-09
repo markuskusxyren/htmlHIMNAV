@@ -719,11 +719,18 @@ div.tomblist {
     visibility: hidden;
 }
 
+#unit-list-container {
+    position: fixed;
+    bottom: 4.75rem;
+    right: 3rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
 .btn-holder {
     position: fixed;
     bottom: 0;
     right: 0;
     margin: 3rem;
     margin-bottom: 4.5rem;
-    /* add some top margin here */
 }
