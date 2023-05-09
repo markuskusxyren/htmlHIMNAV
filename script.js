@@ -6,7 +6,7 @@ navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
 });
 
 function successLocation(position) {
-  setupMap([position.coords.longitude, position.coords.latitude]);
+  setupMap([121.0524150628587, 14.682569991056297]);
 }
 
 function errorLocation() {
@@ -129,6 +129,7 @@ function readDataFromFirestore() {
       console.error("Error reading data from Firestore:", error);
     });
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const showUnitsBtn = document.getElementById('show-units-btn');
