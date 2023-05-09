@@ -134,11 +134,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   init();
 });
-
-
-
-async function init() {
-  loadUnits();
-}
-
-init();
